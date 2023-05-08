@@ -1,0 +1,41 @@
+version: '3.8'
+
+services:
+  backend:
+    depends_on:
+      - mysql
+    build: .
+    ports:
+      - 3000:3000
+    environment:
+      DB_HOST: mysql
+      DB_PORT: 3306
+      DB_USERNAME: root
+      DB_PASSWORD: waseem123
+      DB_NAME: test2
+      JWT_SECRET: 'verysecret'
+      PORT: 3000
+
+    volumes:
+      - uploads:/app/UPLOADS
+
+  mysql:
+    image: mysql:8.0
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: waseem123
+      MYSQL_DATABASE: test2
+    ports:
+      - 4000:3306
+    volumes:
+      - dbdata:/var/lib/mysql
+
+volumes:
+  uploads:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      # set path in your system EX: C:/Users/LEGION/Desktop/docker volume
+      device: C:/Users/LEGION/Desktop/docker volume/northExcel
+  dbdata:
