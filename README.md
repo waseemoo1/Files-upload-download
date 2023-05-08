@@ -13,15 +13,17 @@ Before you begin, you will need to have the following installed on your system:
 
 1. Clone the repository to your local machine.
 
-2. Open the docker-compose.yml file then head for line: (device: Copy path from your system) and replace the path for the uploads volume with the path to the directory on your local machine where you want to store uploaded files.
+2. Create UPLOADS folder in the root directory.
 
-3. Build and start the Docker containers by running the following command from the project directory:
+3. Open the docker-compose.yml file then head for line: (device: Copy path from your system) and replace the path for the uploads volume with the path to the directory on your local machine where you want to store uploaded files.
+
+4. Build and start the Docker containers by running the following command from the project directory:
 
 ```sh
 docker-compose up --build
 ```
 
-> This will build the and start the containers.
+> This will build the images and start the containers.
 
 Once the containers are running, you can access the app at: ` http://localhost:3000`.
 
